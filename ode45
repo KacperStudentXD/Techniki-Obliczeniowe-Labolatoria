@@ -1,0 +1,18 @@
+ode45(@(t, q) odefun(t, q), [0, 8], [16, 0]);
+
+function dqdt = odefun(t, q)
+k = 10;
+m = 0.5; %kg
+x = q(1);
+v = q(2);
+F = -k * x^2;
+dqdt = zeros(2, 1);
+a = F / m;
+
+dqdt(1) = v;
+dqdt(2) = a;
+
+q = [x, v];
+
+
+end

@@ -1,10 +1,13 @@
-ode45(@(t, q) odefun(t, q), [0, 8], [16, 0]);
+%ode45(@(t, q) odefun(t, q), [0, 100], [1, 2]);
+ode45(@odefun,[0 100],[1 2],odeset('OutputSel',1));
 
 function dqdt = odefun(t, q)
-k = 10;
-m = 0.5; %kg
+
 x = q(1);
 v = q(2);
+global k m;
+k = 10;
+m = 0.5; %kg
 F = -k * x^2;
 dqdt = zeros(2, 1);
 a = F / m;

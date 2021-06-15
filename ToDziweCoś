@@ -1,0 +1,17 @@
+x = 1:1000;
+x = x.';
+y = rand(100,1) + x/10;
+ys = zeros(100,1);
+plot(x,Y);
+for i = 2:99;
+    ys(i) = (y(i-1) + y(i) * 2 +y(i+1))/4;
+end
+hold on;
+ys(1) = y(1);
+ys(100) = y(100);
+plot(x,ys);
+yz = y;
+yz(2:end-1) = (y(2:end-1) + y(1:end-2) + y(3:end))/3;
+plot(x,yz);
+ya = movemean(y,3);
+plot(x,ya);

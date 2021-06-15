@@ -1,0 +1,25 @@
+  
+f = @(x) sind(x)
+
+x = 0:710;
+y = 0:30:710;
+z = [0:30:710];
+
+figure(1)
+clf;
+
+%polaczenie fukcji
+plot(x,f(x));
+hold on;
+
+p = plot(y, f(y), 'or')
+p.Color = 'r';
+
+text (z, f(z), string(z))
+
+
+
+%siatkeczka
+xlim([0,720]);
+grid minor;
+grid on;
